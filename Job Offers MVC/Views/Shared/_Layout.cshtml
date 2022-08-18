@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <nav class="navbar navbar-default myheader">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#navbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="~/Home" class="navbar-brand">
+                    <img src="~/Images/logo.png" class="logo-size"/>
+                </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="~/Home">
+                            <i class="glyphicon glyphicon-home"></i>
+                            Home
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="~/Home/About">
+                            <i class="glyphicon glyphicon-info-sign"></i>
+                            About Us
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/Home/Contact">
+                            <i class="glyphicon glyphicon-envelope"></i>
+                            Contact Us
+                        </a>
+                    </li>
+                    <li>
+                        @using (Html.BeginForm("Search", "Home", FormMethod.Post))
+                        {
+                            <input type="text" name="searchName" id="searchName"
+                                   placeholder="Search...." />
+                        }
+                            
+                    </li>
+
+                </ul>
+
+                <!--Partial Login-->
+                @Html.Partial("_MyLogin")
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row" style="min-height:600px">
+            @RenderBody()
+        </div>
+    </div>
+    <!--Footer-->
+
+    <footer class="myfooter">
+        <div class="container">
+            <div class="row" style="margin-bottom:0px">
+                <div class="col-md-4">
+                    <h3>
+                        <i class="glyphicon glyphicon-question-sign"></i>
+                    Who We Are!
+                    </h3>
+                    <p>
+                        Signup for Free and search for Laptops in Egypt, Get signedin Today. 
+                        Easy online search. Create a Free Profile.
+                         Search for Laptops. Laptops: Mac OS , Windows OS  and more.
+                    </p>
+
+                </div>
+                <div class="col-md-4">
+                    <h3>
+                        <i class="glyphicon glyphicon-globe"></i>
+                    Links
+                    </h3>
+                    <ul>
+                        <li><a href="~/Home/PublicSector">MAC OS Laptops</a></li>
+                        <li><a href="~/Home/PrivateSector">Windows OS Laptops</a></li>
+                        <li><a href="~/Home/PrivateAbroad">IPads</a></li>
+                        <li><a href="~/Jobs/Index">Notebook Laptops</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4">
+                    <h3>
+                        <i class="glyphicon glyphicon-envelope"></i>
+                    Contacts
+                    </h3>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">YouTube</a></li>
+                        <li><a href="#">E-mail</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="subfooter" style="margin-bottom:0px">
+            <p>
+                All Copy Rights Are Reserved @@ Mountain.com-2022
+            </p>
+        </div>
+    </footer>
+
+    @RenderSection("scripts", required: false);
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>

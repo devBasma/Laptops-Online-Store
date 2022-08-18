@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Job_Offers_MVC.Models.Category>
+
+@{
+    ViewBag.Title = "Windows OS Laptops";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@foreach (var item in Model)
+{
+    <div class="panel panel-info">
+        <div class="panel-heading"><h2>@Html.DisplayFor(modelItem => item.CategoryName)</h2></div>
+
+        <div class="row panel-body">
+            <h4 style="margin-left:20px">@Html.DisplayFor(modelItem => item.CategoryDescription)</h4>
+
+            @foreach (var subitem in item.Job)
+                {
+
+                <div class="col-md-3 thumbnail" style="margin-left:20px;margin-bottom:20px;min-height:400px">
+                    <img src="~/Uploads/@subitem.JobImage" style="width:300px;height:280px" />
+                    <h4>@Html.DisplayFor(modelItem => subitem.JobTitle)</h4>
+                    <h5>@Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(modelItem => subitem.JobContent).ToString()))</h5>
+                    @Html.ActionLink("Details", "Details", new { JobId = subitem.Id }, new { @class = "btn btn-info" })
+                </div>
+
+
+            }
+
+        </div>
+    </div>
+}

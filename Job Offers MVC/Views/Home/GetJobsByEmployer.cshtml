@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Job_Offers_MVC.Models.JobApplicationsViewModel>
+
+@{
+    ViewBag.Title = "Products published by Owner";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Laptops Have been bought of your Laptops</h2>
+
+@foreach (var gr in Model)
+{
+    <h3 style="color:darkblue;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
+        @gr.JobTitle
+    </h3>
+
+    <table class="table table-condensed table-bordered table-hover">
+        <tr style="background-color:lightskyblue;color:purple;font-size:16px;font-weight:bold
+">
+            <th>User Name</th>
+            <th>Comment</th>
+            <th>Buying Date</th>
+        </tr>
+
+        @foreach (var item in gr.items)
+        {
+            
+                <tr>
+                    <th>@item.user.UserName</th>
+                    <th>@item.Message</th>
+                    <th>@item.ApplyDate</th>
+                </tr>
+            
+
+        }
+    </table>
+}

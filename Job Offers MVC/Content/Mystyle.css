@@ -1,0 +1,115 @@
+﻿@font-face{
+    font-family:myfont;
+    src:url("AlexBrush-Regular.woff")
+}
+
+@font-face{
+    font-family:Andika;
+    src:url("Andika.woff")
+}
+
+@font-face{
+    font-family:Annie;
+    src:url("AnnieUseYourTelescope.woff")
+}
+body{
+    padding:0px;
+}
+
+.myheader{
+    height:65px;
+    margin-bottom:30px;
+}
+.navbar-default {
+    background-color: #0c5c82;
+    border-color: #E7E7E7;
+    
+    
+}
+.nav > li {
+    position: relative;
+    display: block;
+    padding-top: 8px;
+    font-size: 15px;
+    height: 60px;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #cbc5c5;
+    font-family:Andika;
+    font-weight:bold;
+}
+.navbar-default .navbar-nav > li > a:hover {
+    color: white;
+    font-family:Annie;
+}
+.myfooter{
+    background-color:cornflowerblue;
+    padding-top:15px;
+    padding-bottom:0px;
+    font-family:myfont;
+    text-align:justify;
+    margin-bottom:0px;
+}
+
+.subfooter{
+    background-color:#0c5c82;
+    text-align:center;
+    color:white;
+    margin-bottom:0px;
+    padding-top:15px;
+    padding-bottom:5px;
+    font-family:Annie;
+    font-size:15px;
+
+}
+.myfooter a{
+    color:azure;
+    font-family:Andika;
+    font-size:15px;
+    
+}
+.myfooter h3,ul{
+    margin-bottom:15px;
+}
+.myfooter p{
+    color:azure;
+    font-family:Annie;
+    font-size:15px;
+}
+.logo-size{
+    width:110px;
+    height:60px;
+    margin-top:-13px;
+
+}
+#searchName {
+    width: 150px;
+    background-color: white;
+    border: 2px solid #cbc5c5;
+    border-radius: 8px;
+    font-family: 'Times New Roman';
+    font-size: 20px;
+    padding: 5px 5px 5px 5px;
+    background-image: url('../Images/search2.png');
+    background-repeat: no-repeat;
+    background-position: 93% 50%;
+    transition: width 0.4s ease-in-out;
+}
+
+#searchName:focus{
+    width:100%;
+}
+.img-size{
+    font-size:70px;
+}
+.navbar-user{
+    padding:10px;
+    padding-bottom:0px;
+    width:350px;
+}
+@media(min-width:992px){
+.col-md-3 {
+    width: 23%;
+}
+}

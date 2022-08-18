@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Job_Offers_MVC.Models.Jobs>
+
+@{
+    ViewBag.Title = "Miscellaneous";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="panel panel-info">
+   
+    <div class="panel-heading" style="margin-bottom:25px;"><h2>Miscellaneous Jobs</h2></div>
+    <div class="row panel-body">
+        @foreach (var item in Model)
+
+        {
+            <div class="col-md-3 thumbnail" style="margin-left:20px;margin-bottom:20px;min-height:400px">
+                <img src="~/Uploads/@item.JobImage" style="width:300px;height:280px" />
+                <h4>@Html.DisplayFor(modelItem => item.JobTitle)</h4>
+                <h5>@Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(modelItem => item.JobContent).ToString()))</h5>
+                @Html.ActionLink("Details", "Details", new { JobId = item.Id }, new { @class = "btn btn-info" })
+            </div>
+        }
+    </div>
+    </div>

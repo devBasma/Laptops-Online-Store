@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Job_Offers_MVC.Models.Jobs>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Products List</h2>
+
+<p>
+    @Html.ActionLink("Create a New Product ", "Create")
+</p>
+<table class="table table-bordered table-striped table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.category.CategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JobTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JobContent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JobImage)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.category.CategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JobTitle)
+        </td>
+        <td>
+           @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(modelItem => item.JobContent).ToString()))
+        </td>
+        <td>
+            <img src="~/Uploads/@Html.DisplayFor(modelItem => item.JobImage)" class="thumbnail" style="width:48px;height:48px" />
+        </td>
+        <td>
+            @Html.ActionLink("Archive", "Edit", new { id=item.Id },new { @class="btn btn-info"}) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }, new { @class = "btn btn-primary" }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,41 @@
+﻿@model Job_Offers_MVC.Models.ApplyForJob
+
+@{
+    ViewBag.Title = "UserJobsDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Buying Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Laptop Name: 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.job.JobTitle)
+        </dd>
+        <dt>
+            Comment: 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Message)
+        </dd>
+
+        <dt>
+            Buying Date: 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplyDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "GetJobByUser")
+</p>
